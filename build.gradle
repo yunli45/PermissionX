@@ -14,10 +14,10 @@ buildscript {
     }
 }
 
-allprojects {
+allprojects {  //配置所有子工程
     repositories {
         google()
-        jcenter()
+        jcenter() //代码托管库：设置之后可以在项目中轻松引用jcenter上的开源项目
     }
 }
 

@@ -1,3 +1,4 @@
+// 声明是Android应用程序还是库模块,和需要用到的插件
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
@@ -5,7 +6,7 @@ plugins {
 
 }
 
-android {
+android { // 配置项目构建的各种属性
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
@@ -19,7 +20,7 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
-    buildTypes {
+    buildTypes { // 指定生成安装文件的配置，是否对代码进行混淆
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -44,3 +45,13 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
+
+// 新
+ext {
+    artifact = 'PermissionX'
+    libraryName = 'PermissionX of Android'
+    libraryDescription = '一个关于安卓权限申请的库'
+    libraryVersion = permissionX_main_version
+}
+
+apply from: '../maven-publish.gradle'
